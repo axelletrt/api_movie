@@ -1,0 +1,28 @@
+<form action="/action_page.php" method="post" target="_blank">
+  title: <input type="text" name="title"><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+<% if @movies %>
+	<% if @movies.empty? %>
+	<p>Pas de film trouvé</p>
+	<% end %>
+
+
+	<div class="row">
+ 		<% @movies.each do |movie| %>
+		<div class="col-sm-6 col-lg-4">
+ 			<div class="card">
+    		<div class="card-body">
+      		<h4 class="card-title"><%= movie['title'] %></h4>
+      	<p class="card-text">Release : <%= movie['release'] %></p>
+    		</div>
+			</div>
+  	</div>
+	<% end %>
+	</div>
+<% end %>
+
+
+
